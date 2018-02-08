@@ -2,7 +2,7 @@
 
 
 ##Run
-To run this tool download the http-validator.tar.gz file from the repository via <insert link here when uploaded>
+To run this tool download the http-validator.tar.gz file from the repository via https://github.com/darrenildinho/http-validator/raw/master/http-validator.tar.gz
 
 Untar the file and navigate your terminal to be in the same window as the request_maker.py script 
 and create a text file containing urls separated by a new line like so
