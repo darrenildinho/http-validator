@@ -35,11 +35,19 @@ class TestUrls(unittest.TestCase):
 
     def test_all_status_records(self):
         status_codes = [200,302,200]
-        expected_status_codes_json = [{"Status_code": 200, "Number_of_responses": 2},
-                                      {"Status_code": 302, "Number_of_responses": 1}]
-        actual_status_codes_json = status_codes_report(status_codes)
-        json.load(open("status_reports.txt"))
-        self.assertEqual(expected_status_codes_json, actual_status_codes_json)
+
+        with open("status_reports_test") as expected_report_file:
+            expected_status_report = expected_report_file.readlines()
+            expected_status_report = [x.strip() for x in expected_status_report]
+
+        status_codes_report(status_codes)
+
+        with open("Http-Status-Report.txt","r") as report_file:
+            actual_status_codes_reports = report_file.readlines()
+            actual_status_codes_reports = [x.strip() for x in actual_status_codes_reports]
+
+
+        self.assertEqual(expected_status_report, actual_status_codes_reports)
 
 
 def main():
